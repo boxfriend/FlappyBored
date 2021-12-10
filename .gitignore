@@ -4,9 +4,8 @@
 [Bb]uild/
 [Bb]uilds/
 [Ll]ogs/
+[Pp]lugins/
 Assets/AssetStoreTools*
-Assets/Plugins
-.idea/
 
 # Visual Studio cache directory
 .vs/
@@ -39,5 +38,4 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
-# Other
 *.log
