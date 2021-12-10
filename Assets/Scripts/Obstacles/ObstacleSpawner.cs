@@ -1,13 +1,9 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Boxfriend.Player;
-using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Pool;
-using Random = System.Random;
 
 namespace Boxfriend
 {
@@ -19,7 +15,7 @@ namespace Boxfriend
         [SerializeField] private Pipe _pipePrefab;
         private IObjectPool<Pipe> _pipePool;
 
-        [ShowInInspector] private List<Pipe> _activePipes = new List<Pipe>();
+        private List<Pipe> _activePipes = new List<Pipe>();
 
         private bool isPlayerDead;
 
