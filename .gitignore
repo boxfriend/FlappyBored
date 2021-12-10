@@ -5,6 +5,7 @@
 [Bb]uilds/
 [Ll]ogs/
 Assets/AssetStoreTools*
+Assets/Plugins
 .idea/
 
 # Visual Studio cache directory
