@@ -15,7 +15,7 @@ namespace Boxfriend
         [SerializeField] private Pipe _pipePrefab;
         private IObjectPool<Pipe> _pipePool;
 
-        private List<Pipe> _activePipes = new List<Pipe>();
+        private readonly List<Pipe> _activePipes = new List<Pipe>();
 
         private bool isPlayerDead;
 
@@ -97,9 +97,8 @@ namespace Boxfriend
         {
             var toRemove = _activePipes.Where(pipe => pipe.transform.position.x < _minX).ToList();
             foreach (var pipe in toRemove)
-            {
                 _pipePool.Release(pipe);
-            }
+            
             toRemove.Clear();
         }
 

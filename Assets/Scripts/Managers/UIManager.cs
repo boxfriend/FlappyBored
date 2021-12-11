@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Boxfriend.Player;
 using TMPro;
@@ -8,7 +9,7 @@ namespace Boxfriend
     public class UIManager : MonoBehaviour
     {
         [SerializeField] private TMP_Text _pointsText, _highScoreText;
-        [SerializeField] private GameObject _pausePanel; 
+        [SerializeField] private GameObject _pausePanel, _beginText, _niceText; 
 
         private int _pointCount, _highScore;
 
@@ -16,6 +17,14 @@ namespace Boxfriend
         {
             PlayerController.OnGetPoints += UpdatePoints;
             PlayerController.OnPlayerPause += Pause;
+
+            PlayerController.OnPlayerJump += Begin;
+            
+            void Begin ()
+            {
+                Destroy(_beginText);
+                PlayerController.OnPlayerJump -= Begin;
+            }
         }
         private void OnDisable ()
         {
@@ -34,7 +43,9 @@ namespace Boxfriend
         {
             _pointCount++;
             _pointsText.text = $"Points: {_pointCount}";
-            
+
+            _niceText.SetActive(_pointCount is 69 or 420);
+
             if(_pointCount > _highScore)
                 _highScoreText.text = $"High Score: {_pointCount}";
         }
